@@ -29,6 +29,39 @@ function getPlayerChoice() {
     }
 }
 
-console.log(getComputerChoice());
-let choice = getPlayerChoice();
-console.log(choice);
+function playRound (computerChoice, playerChoice) {
+
+    console.log(`Computer's choice is: ${computerChoice}`);
+    console.log(`Player's choice is: ${playerChoice}`);
+
+    if (playerChoice === computerChoice) {
+        return 'tie';
+    }
+    else if (playerChoice === 'rock') {
+        if(computerChoice === 'paper') {
+            return 'loss';
+        }
+        else {
+            return 'win';
+        }
+    }
+    else if (playerChoice === 'paper') {
+        if(computerChoice === 'scissors') {
+            return 'loss';
+        }
+        else {
+            return 'win';
+        }
+    }
+    else if (playerChoice === 'scissors') {
+        if(computerChoice === 'rock') {
+            return 'loss';
+        }
+        else {
+            return 'win';
+        }
+    }
+}
+
+let result = playRound(getComputerChoice(), getPlayerChoice());
+console.log(result);
