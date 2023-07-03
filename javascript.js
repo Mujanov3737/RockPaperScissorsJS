@@ -65,6 +65,22 @@ function playRound (computerChoice, playerChoice) {
     }
 }
 
+// Compares score to win limit
+// TODO: Add functionality for player to choose win limit, default to 5 currently
+function checkWin(scoreAI, scorePlayer) {
+    if (scoreAI === 5 ) {
+        alert('You Lose!')
+        return true;
+    }
+    else if (scorePlayer === 5 ) {
+        alert('You Win!')
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 // Game function
 function game() {
     
@@ -76,15 +92,8 @@ function game() {
     // Main game loop
     while (!gameover) {
 
-        // Checks win condition
-        if (scoreAI === 5 ) {
-            alert('You Lose!')
-            gameover = true;
-        }
-        else if (scorePlayer === 5 ) {
-            alert('You Win!')
-            gameover = true;
-        }
+        // Checks win conditions
+        gameover = checkWin(scoreAI, scorePlayer);
         
         console.log(`Round: ${round}`);
         console.log(`---------------`);
