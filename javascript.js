@@ -63,5 +63,52 @@ function playRound (computerChoice, playerChoice) {
     }
 }
 
-let result = playRound(getComputerChoice(), getPlayerChoice());
-console.log(result);
+function game() {
+    
+    let scoreAI = 0;
+    let scorePlayer = 0;
+    let round = 1;
+    let gameover = false;
+    
+    while (!gameover) {
+
+        
+        if (scoreAI === 5 ) {
+            alert('You Lose!')
+            gameover = true;
+        }
+        else if (scorePlayer === 5 ) {
+            alert('You Win!')
+            gameover = true;
+        }
+        
+
+        console.log(`Round: ${round}`);
+        console.log(`---------------`);
+        console.log(`Player's Score: ${scorePlayer}`);
+        console.log(`Computer's Score: ${scoreAI}`);
+        console.log(`---------------`);
+  
+        let result = playRound(getComputerChoice(), getPlayerChoice());
+        console.log(`Result was a: ${result}`);
+        console.log('\n');
+
+        if (result === 'win') {
+            scorePlayer += 1;
+            round += 1;
+            continue;
+        }
+        else if (result === 'loss') {
+            scoreAI += 1;
+            round += 1;
+            continue;
+        }
+        else if (result === 'tie') {
+            round += 1;
+            continue;
+        }
+        
+    }
+}
+
+game();
