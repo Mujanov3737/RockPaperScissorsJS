@@ -1,4 +1,9 @@
 const VALID_ACTIONS = ['rock', 'paper', 'scissors'];
+const WINNING_COMBOS = {
+    rock: 'scissors',
+    paper: 'rock',
+    scissors: 'paper'
+};
 
 // Returns the action the computer will take each round
 function getComputerChoice() {
@@ -58,30 +63,11 @@ function playRound (computerChoice, playerChoice) {
     if (playerChoice === computerChoice) {
         return 'draw';
     }
-    else if (playerChoice === 'rock') {
-        if(computerChoice === 'paper') {
-            return 'loss';
-        }
-        else {
-            return 'win';
-        }
+    if (WINNING_COMBOS[playerChoice] === computerChoice) {
+        return 'win';
     }
-    else if (playerChoice === 'paper') {
-        if(computerChoice === 'scissors') {
-            return 'loss';
-        }
-        else {
-            return 'win';
-        }
-    }
-    else if (playerChoice === 'scissors') {
-        if(computerChoice === 'rock') {
-            return 'loss';
-        }
-        else {
-            return 'win';
-        }
-    }
+    return 'loss';
+
 }
 
 function checkRoundWin(result) {
