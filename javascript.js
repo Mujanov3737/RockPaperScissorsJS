@@ -5,6 +5,10 @@ const WINNING_COMBOS = {
     scissors: 'paper'
 };
 
+const WIN = 'win';
+const LOSS = 'loss';
+const DRAW = 'draw';
+
 // Returns the action the computer will take each round
 function getComputerChoice() {
     return VALID_ACTIONS[(Math.floor(Math.random() * VALID_ACTIONS.length))]; 
@@ -29,23 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Plays a round of the game, returning win, lose, or draw
-function playRound (computerChoice, playerChoice) {
-
-    console.log(`Computer's choice is: ${computerChoice}`);
-    console.log(`Player's choice is: ${playerChoice}`);
-
-    aiChoiceElement.textContent = computerChoice.toUpperCase();
-
-    if (playerChoice === computerChoice) {
-        return 'draw';
-    }
-    if (WINNING_COMBOS[playerChoice] === computerChoice) {
-        return 'win';
-    }
-    return 'loss';
-}
-
 // Handles logic for updating the view and checking the win result
 function playAndDisplayRound(playerChoice) {
     const computerChoice = getComputerChoice();
@@ -57,17 +44,34 @@ function playAndDisplayRound(playerChoice) {
     aiScoreElement.textContent = aiScore;
 }
 
+// Plays a round of the game, returning win, lose, or draw
+function playRound (computerChoice, playerChoice) {
+
+    console.log(`Computer's choice is: ${computerChoice}`);
+    console.log(`Player's choice is: ${playerChoice}`);
+
+    aiChoiceElement.textContent = computerChoice.toUpperCase();
+
+    if (playerChoice === computerChoice) {
+        return DRAW;
+    }
+    if (WINNING_COMBOS[playerChoice] === computerChoice) {
+        return WIN;
+    }
+    return LOSS;
+}
+
 function checkRoundWin(result) {
     // Updates variables based on round result. TODO add rounds
-    if (result === 'win') {
+    if (result === WIN) {
         playerScore += 1;
         round += 1;
     }
-    else if (result === 'loss') {
+    else if (result === LOSS) {
         aiScore += 1;
         round += 1;
     }
-    else if (result === 'draw') {
+    else if (result === DRAW) {
         round += 1;
     }
 }
