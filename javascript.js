@@ -22,7 +22,7 @@ const roundResultElement  = document.querySelector('.result');
 
 // Wrapping event listeners so that the DOM is first parsed before this part of the script executes.
 document.addEventListener('DOMContentLoaded', () => {
-    ['rock', 'paper', 'scissors'].forEach(action => {
+    VALID_ACTIONS.forEach(action => {
         document.querySelector(`.btn-${action}`).addEventListener('click', () => {
             playAndDisplayRound(action);
         });
