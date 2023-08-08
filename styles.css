@@ -18,6 +18,7 @@ body {
 
 .title {
     background-color: #1f2937;
+    color:#f9fafb;
     padding: 25px 35px;
     font-size:35px;
     font-weight: bold;
@@ -25,7 +26,14 @@ body {
     border-radius: 8px;
 }
 
-.choice-cpu {
+.choice-container {
+    display:flex;
+    justify-content: center;
+    gap:10px;
+}
+.choice-cpu,
+.choice-header {
+    color:#f9fafb;
     margin-top: 35px;
 }
 
@@ -40,6 +48,24 @@ body {
     justify-content: center;
     flex-direction: row;
     gap: 50px;
+}
+
+.score-container-player,
+.score-container-cpu {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.score-container-cpu {
+    margin-top: 35px;
+}
+
+.score-cpu,
+.score-player {
+    color:#f9fafb;
+    font-weight: bold;
 }
 
 .btn-rock,
