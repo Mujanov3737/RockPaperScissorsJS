@@ -39,6 +39,20 @@ function playAndDisplayRound(playerChoice) {
     const result = playRound(computerChoice, playerChoice);
 
     checkRoundWin(result);
+
+    // Change color of text based on result
+    switch (result) {
+        case WIN:
+            roundResultElement.style.color = 'green';
+            break;
+        case LOSS:
+            roundResultElement.style.color = 'red';
+            break;
+        case DRAW:
+            roundResultElement.style.color = '#f9fafb';
+            break;
+    }
+
     roundResultElement.textContent = result.toUpperCase();
     playerScoreElement.textContent = playerScore;
     aiScoreElement.textContent = aiScore;
