@@ -18,10 +18,11 @@ body {
 
 .title {
     background-color: #1f2937;
-    padding: 10px 25px;
+    padding: 25px 35px;
     font-size:35px;
     font-weight: bold;
     margin-top: 5%;
+    border-radius: 8px;
 }
 
 .choice-cpu {
@@ -48,4 +49,6 @@ body {
     border-radius: 8px;
     padding: 10px 25px;
     margin-top: 50px;
+    color:#f9fafb;
+    text-decoration: none;
 }

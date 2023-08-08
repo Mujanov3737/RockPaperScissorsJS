@@ -124,4 +124,22 @@ function game() {
     }
 }
 
-game();
+document.addEventListener('DOMContentLoaded', function() {
+    const btnRock = document.querySelector('.btn-rock');
+    const btnPaper = document.querySelector('.btn-paper');
+    const btnScissors = document.querySelector('.btn-scissors');
+
+    btnRock.addEventListener('click', () => {
+        alert("Rock was chosen");
+    });
+
+    btnPaper.addEventListener('click', () => {
+        alert("Paper was chosen");
+    });
+
+    btnScissors.addEventListener('click', () => {
+        alert("Scissors was chosen");
+    });
+});
+
+//game();
